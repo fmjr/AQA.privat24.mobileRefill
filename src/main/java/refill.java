@@ -16,6 +16,12 @@ public class refill {
         driver.get("https://next.privat24.ua/mobile");
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
+        WebElement lang = driver.findElement(By.xpath("//button[@data-qa-node='lang']"));
+        lang.click();
+
+        WebElement langUkr = driver.findElement(By.xpath("//button[@data-qa-node='lang-option' and @data-qa-value='Українська']"));
+        langUkr.click();
+
         WebElement phoneCode = driver.findElement(By.xpath("//button[@data-qa-node='phone-code']"));
         phoneCode.click();
 
@@ -28,7 +34,7 @@ public class refill {
         WebElement phoneNumber = driver.findElement(By.xpath("//input[@data-qa-node='phone-number']"));
         phoneNumber.sendKeys("969910470");
 
-        WebElement amountHotSpot = driver.findElement(By.xpath("(//button[@data-qa-node='amount-hot-spot'])[3]"));
+        WebElement amountHotSpot = driver.findElement(By.xpath("//button[@data-qa-node='amount-hot-spot' and contains(., 150)]"));
         amountHotSpot.click();
 
         WebElement cardNumber = driver.findElement(By.xpath("//input[@data-qa-node='numberdebitSource']"));
